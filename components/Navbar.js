@@ -19,7 +19,7 @@ export default function Navbar() {
         </nav>
         <a className="nav-mail" href={`mailto:${profile.email}`}>
           <SocialIcon name="mail" />
-          {profile.email}
+          <span className="nav-mail-text">{profile.email}</span>
         </a>
       </div>
     </header>
