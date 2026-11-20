@@ -1,8 +1,21 @@
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import Resume from '../components/Resume';
+import Portfolio from '../components/Portfolio';
+import Footer from '../components/Footer';
+
 export default function Home() {
   return (
-    <main>
-      <h1>Next.js Project</h1>
-      <p>Mulai coding project Anda di sini.</p>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Resume />
+        <Portfolio />
+      </main>
+      <Footer />
+    </>
   );
 }
