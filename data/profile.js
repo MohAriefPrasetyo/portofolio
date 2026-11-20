@@ -11,7 +11,7 @@ export const profile = {
   heroLineTwo: 'PRASETYO',
   role: 'Fullstack Developer',
   tagline: 'Creative Developer | AR Enthusiast',
-  email: 'f55124012@untad.ac.id',
+  email: 'arifprasetyo073@gmail.com',
   photo: '/images/foto-arief.png',
   location: 'Palu, Central Sulawesi',
   locationSub: 'Universitas Tadulako, Indonesia',
@@ -105,5 +105,5 @@ export const socials = [
   { label: 'GitHub', href: 'https://github.com/MohAriefPrasetyo', icon: 'github' },
   { label: 'LinkedIn', href: '#', icon: 'linkedin' },
   { label: 'Instagram', href: '#', icon: 'instagram' },
-  { label: 'Email', href: 'mailto:f55124012@untad.ac.id', icon: 'mail' },
+  { label: 'Email', href: 'mailto:arifprasetyo073@gmail.com', icon: 'mail' },
 ];
