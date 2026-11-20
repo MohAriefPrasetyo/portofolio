@@ -1,17 +1,21 @@
+'use client';
+
 import { profile } from '../data/profile';
+import { useLang } from './LanguageProvider';
 
 export default function About() {
+  const { t } = useLang();
   return (
     <section className="section" id="about">
       <div className="wrap">
         <div className="about-grid">
           <div>
             <div className="sec-head">
-              <h2>About</h2>
+              <h2>{t.aboutTitle}</h2>
               <p className="sec-sub">{profile.email}</p>
             </div>
             <div className="about-text" style={{ marginTop: '2.2rem' }}>
-              {profile.about.map((p, i) => (
+              {t.about.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
@@ -27,8 +31,8 @@ export default function About() {
         <div className="about-loc">
           <span className="rule left" />
           <div className="loc">
-            <b>{profile.location}</b>
-            <span>{profile.locationSub}</span>
+            <b>{t.location}</b>
+            <span>{t.locationSub}</span>
           </div>
           <span className="rule right" />
         </div>

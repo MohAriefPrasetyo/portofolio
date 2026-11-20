@@ -1,14 +1,8 @@
-import {
-  softwareSkills,
-  languages,
-  personalSkills,
-  timeline,
-  education,
-  whatCanIDo,
-  devFocus,
-  hobbies,
-} from '../data/profile';
+'use client';
+
+import { softwareSkills, languages, hobbies } from '../data/profile';
 import { HobbyIcon } from './Icons';
+import { useLang } from './LanguageProvider';
 
 function Bar({ level }) {
   return (
@@ -29,12 +23,13 @@ function BadgeParts({ period }) {
 }
 
 export default function Resume() {
+  const { t } = useLang();
   return (
     <section className="section section-alt" id="resume">
       <div className="wrap resume-grid">
         <div>
           <div className="r-block">
-            <h3 className="r-head">Software Skills</h3>
+            <h3 className="r-head">{t.heads.softwareSkills}</h3>
             {softwareSkills.map((s) => (
               <div className="skill-row" key={s.name}>
                 <span className="skill-badge" style={{ color: s.color }}>{s.badge}</span>
@@ -46,70 +41,70 @@ export default function Resume() {
             ))}
           </div>
           <div className="r-block">
-            <h3 className="r-head">Languages</h3>
-            {languages.map((l) => (
-              <div className="lang-row" key={l.name}>
-                <p className="skill-name">{l.name}</p>
+            <h3 className="r-head">{t.heads.languages}</h3>
+            {languages.map((l, i) => (
+              <div className="lang-row" key={i}>
+                <p className="skill-name">{t.languageNames[i]}</p>
                 <Bar level={l.level} />
               </div>
             ))}
           </div>
           <div className="r-block">
-            <h3 className="r-head">Personal Skills</h3>
-            <p className="plain-list">{personalSkills.join('  ·  ')}</p>
+            <h3 className="r-head">{t.heads.personalSkills}</h3>
+            <p className="plain-list">{t.personalSkills.join('  ·  ')}</p>
           </div>
         </div>
 
         <div>
           <div className="r-block">
-            <h3 className="r-head">Experience</h3>
+            <h3 className="r-head">{t.heads.experience}</h3>
             <div className="tl">
-              {timeline.map((t) => (
-                <div className="tl-item" key={t.title}>
+              {t.timeline.map((item) => (
+                <div className="tl-item" key={item.title}>
                   <span className="tl-badge">
-                    <BadgeParts period={t.period} />
+                    <BadgeParts period={item.period} />
                   </span>
                   <div className="tl-body">
-                    <p className="tl-title">{t.title}</p>
-                    <p className="tl-role">{t.role}</p>
+                    <p className="tl-title">{item.title}</p>
+                    <p className="tl-role">{item.role}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
           <div className="r-block">
-            <h3 className="r-head">Education</h3>
-            <p className="edu-degree">{education.degree}</p>
-            <p className="edu-school">{education.school}</p>
+            <h3 className="r-head">{t.heads.education}</h3>
+            <p className="edu-degree">{t.education.degree}</p>
+            <p className="edu-school">{t.education.school}</p>
           </div>
         </div>
 
         <div>
           <div className="r-block">
-            <h3 className="r-head">What Can I Do?</h3>
+            <h3 className="r-head">{t.heads.whatCanIDo}</h3>
             <div className="lines-list">
-              {whatCanIDo.map((line) => (
+              {t.whatCanIDo.map((line) => (
                 <p key={line}>{line}</p>
               ))}
             </div>
           </div>
           <div className="r-block">
-            <h3 className="r-head">Dev Focus</h3>
+            <h3 className="r-head">{t.heads.devFocus}</h3>
             <div className="lines-list">
-              {devFocus.map((line) => (
+              {t.devFocus.map((line) => (
                 <p key={line}>{line}</p>
               ))}
             </div>
           </div>
           <div className="r-block">
-            <h3 className="r-head">Hobbies &amp; Interests</h3>
+            <h3 className="r-head">{t.heads.hobbies}</h3>
             <div className="hobby-grid">
-              {hobbies.map((h) => (
-                <div className="hobby" key={h.label}>
+              {hobbies.map((h, i) => (
+                <div className="hobby" key={h.icon}>
                   <span className="h-ico">
                     <HobbyIcon name={h.icon} />
                   </span>
-                  <span>{h.label}</span>
+                  <span>{t.hobbyLabels[i]}</span>
                 </div>
               ))}
             </div>
